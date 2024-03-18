@@ -95,6 +95,7 @@
         </div>
       </div>
     </div>
+    <h3 class="text-center text-capitalize">The password is 1234</h3>
     <button class="btn" id="submitBtn">Submit</button>
 
     <script>
@@ -125,7 +126,11 @@
           let password = [1, 2, 3, 4]; // Example password, replace with your desired password
 
           if (JSON.stringify(selectedNumbers) === JSON.stringify(password)) {
-            alert("Congratulations! You guessed the correct password.");
+            document.querySelector(".lock-head").classList.add("move-up");
+            setTimeout(() => {
+              alert("Congratulations! You guessed the correct password.");
+              window.location.reload()
+            }, 600);
           } else {
             alert("Sorry, wrong password. Try again.");
           }
