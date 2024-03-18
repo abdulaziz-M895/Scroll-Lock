@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="bootstrap.min.css" />
+    <link rel="stylesheet" href="main.css" />
+    <title>Document</title>
+  </head>
+  <body class="d-flex justify-content-end flex-column position-relative">
+    <div class="lock-head"></div>
+    <div class="lock">
+      <div
+        class="numbers-continer d-flex align-items-center justify-content-center"
+      >
+        <div class="num-col d-flex flex-column align-items-center">
+          <span>1</span>
+          <span>2</span>
+          <span>3</span>
+          <span>4</span>
+          <span>5</span>
+          <span>6</span>
+          <span>7</span>
+          <span>8</span>
+          <span>9</span>
+          <span>1</span>
+          <span>2</span>
+          <span>3</span>
+          <span>4</span>
+          <span>5</span>
+          <span>6</span>
+          <span>7</span>
+          <span>8</span>
+          <span>9</span>
+        </div>
+        <div class="num-col d-flex flex-column align-items-center">
+          <span>1</span>
+          <span>2</span>
+          <span>3</span>
+          <span>4</span>
+          <span>5</span>
+          <span>6</span>
+          <span>7</span>
+          <span>8</span>
+          <span>9</span>
+          <span>1</span>
+          <span>2</span>
+          <span>3</span>
+          <span>4</span>
+          <span>5</span>
+          <span>6</span>
+          <span>7</span>
+          <span>8</span>
+          <span>9</span>
+        </div>
+        <div class="num-col d-flex flex-column align-items-center">
+          <span>1</span>
+          <span>2</span>
+          <span>3</span>
+          <span>4</span>
+          <span>5</span>
+          <span>6</span>
+          <span>7</span>
+          <span>8</span>
+          <span>9</span>
+          <span>1</span>
+          <span>2</span>
+          <span>3</span>
+          <span>4</span>
+          <span>5</span>
+          <span>6</span>
+          <span>7</span>
+          <span>8</span>
+          <span>9</span>
+        </div>
+        <div class="num-col d-flex flex-column align-items-center">
+          <span>1</span>
+          <span>2</span>
+          <span>3</span>
+          <span>4</span>
+          <span>5</span>
+          <span>6</span>
+          <span>7</span>
+          <span>8</span>
+          <span>9</span>
+          <span>1</span>
+          <span>2</span>
+          <span>3</span>
+          <span>4</span>
+          <span>5</span>
+          <span>6</span>
+          <span>7</span>
+          <span>8</span>
+          <span>9</span>
+        </div>
+      </div>
+    </div>
+    <button class="btn" id="submitBtn">Submit</button>
+
+    <script>
+      document
+        .getElementById("submitBtn")
+        .addEventListener("click", function () {
+          let selectedNumbers = [];
+          let numCols = document.querySelectorAll(".num-col");
+
+          numCols.forEach(function (col) {
+            let spans = col.querySelectorAll("span");
+            let selectedSpan;
+
+            spans.forEach(function (span, index) {
+              let rect = span.getBoundingClientRect();
+              if (
+                rect.top < window.innerHeight / 2 &&
+                rect.bottom > window.innerHeight / 2
+              ) {
+                selectedSpan = span;
+              }
+            });
+
+            let selectedNumber = parseInt(selectedSpan.textContent);
+            selectedNumbers.push(selectedNumber);
+          });
+
+          let password = [1, 2, 3, 4]; // Example password, replace with your desired password
+
+          if (JSON.stringify(selectedNumbers) === JSON.stringify(password)) {
+            alert("Congratulations! You guessed the correct password.");
+          } else {
+            alert("Sorry, wrong password. Try again.");
+          }
+        });
+    </script>
+  </body>
+</html>
