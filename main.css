@@ -4,6 +4,9 @@
 body {
   height: 100svh;
 }
+.draw {
+  position: relative;
+}
 .lock-head {
   height: 50px;
   width: 400px;
@@ -111,5 +114,13 @@ button {
   }
   .move-up {
     top: 16%;
+  }
+}
+@media (max-width: 400px) {
+  .lock-head {
+    top: 14.5%;
+  }
+  .move-up {
+    top: 10%;
   }
 }
